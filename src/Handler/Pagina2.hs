@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
-module Pagina2 where
+module Handler.Pagina2 where
 
 import Foundation
 import Yesod.Core

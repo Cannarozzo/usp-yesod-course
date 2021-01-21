@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
-module Add where
+module Handler.Add where
 
 import Foundation
 import Yesod.Core

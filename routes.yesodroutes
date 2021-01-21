@@ -6,3 +6,6 @@
 /appliform     AppliFormR GET POST
 /sessao        SessaoR GET POST
 /set-message SetMessageR GET POST 
+/admin AdminR GET
+/auth  AuthR  Auth getAuth
+/home-auth    HomeAuth GET

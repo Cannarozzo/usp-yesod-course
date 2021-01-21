@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
-module SetMessage where
+module Handler.SetMessage where
 
 
 import Foundation

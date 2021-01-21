@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
-module InputForm where
+module Handler.InputForm where
 
 import Yesod.Core
 import Yesod

@@ -7,16 +7,18 @@ module Application where
 
 import Foundation
 import Yesod.Core
+import Yesod.Auth
 
-import Add
+import Handler.Add
 import Home
-import Pagina1
-import Pagina2
-import InputForm
-import AppliForm
-import Sessao
-import SetMessage
-
+import Handler.Pagina1
+import Handler.Pagina2
+import Handler.InputForm
+import Handler.AppliForm
+import Handler.Sessao
+import Handler.SetMessage
+import Handler.Admin
+import Handler.HomeAuth
 
 mkYesodDispatch "App" resourcesApp
 

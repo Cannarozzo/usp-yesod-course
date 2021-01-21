@@ -5,7 +5,7 @@
 {-# LANGUAGE TypeFamilies          #-}
 
 
-module AppliForm where
+module Handler.AppliForm where
 
 import Foundation
 import Yesod.Core
