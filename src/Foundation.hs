@@ -28,7 +28,7 @@ instance Yesod App where -- Sessao setada para 1 minuto
     authRoute _ = Just $ AuthR LoginR
 
     -- route name, then a boolean indicating if it's a write request
-    isAuthorized HomeR True = isAdmin
+    isAuthorized HomeAuthR True = isAdmin
     isAuthorized AdminR _ = isAdmin
 
     -- anyone can access other pages

@@ -8,4 +8,4 @@
 /set-message SetMessageR GET POST 
 /admin AdminR GET
 /auth  AuthR  Auth getAuth
-/home-auth    HomeAuth GET
+/home-auth    HomeAuthR GET POST

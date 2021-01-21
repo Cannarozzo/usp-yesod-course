@@ -8,8 +8,8 @@ import Yesod
 import Yesod.Auth
 
 
-getHomeAuth :: Handler Html
-getHomeAuth = do
+getHomeAuthR :: Handler Html
+getHomeAuthR = do
     maid <- maybeAuthId
     defaultLayout
         [whamlet|
@@ -25,3 +25,8 @@ getHomeAuth = do
                 \ #
                 <input type=submit>
         |]
+
+postHomeAuthR :: Handler Html
+postHomeAuthR = do
+    setMessage "Voce fez alguma alteracao na página"
+    redirect HomeR
