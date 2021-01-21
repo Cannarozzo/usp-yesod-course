@@ -1,0 +1,26 @@
+name:    Minimal
+version: "0.0.0"
+
+dependencies:
+- base
+- yesod-core
+- yesod >= 1.6.1.0
+- text >= 1.2.4.0
+- time >= 1.9.3
+
+# The library contains all of our application code. The executable
+# defined below is just a thin wrapper.
+library:
+  source-dirs: src
+
+# Runnable executable for our application
+executables:
+  Minimal:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Minimal

@@ -1,0 +1,8 @@
+/              HomeR GET
+/add/#Int/#Int AddR  GET
+/pagina1       Pagina1R GET
+/pagina2       Pagina2R GET
+/inputform     InputFormR GET
+/appliform     AppliFormR GET POST
+/sessao        SessaoR GET POST
+/set-message SetMessageR GET POST 
