@@ -11,8 +11,8 @@ import Yesod.Auth
 
 import Handler.Add
 import Home
-import Handler.Pagina1
-import Handler.Pagina2
+import Handler.TemplatesWidgets
+import Handler.HamletSyntaxe
 import Handler.InputForm
 import Handler.AppliForm
 import Handler.Sessao

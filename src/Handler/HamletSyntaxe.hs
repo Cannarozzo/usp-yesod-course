@@ -1,13 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
-module Handler.Pagina2 where
+module Handler.HamletSyntaxe where
 
 import Foundation
 import Yesod.Core
 import Data.Text
-
-
 
 data Pessoa = Pessoa {nome:: Text , idade::Int } | Nulo deriving Show
 
@@ -17,8 +15,8 @@ ehPessoa :: Pessoa -> Maybe Pessoa
 ehPessoa (Pessoa n i) = Just (Pessoa n i)
 ehPessoa Nulo = Nothing
 
-getPagina2R :: Handler Html
-getPagina2R = defaultLayout $ do
+getHamletSyntaxeR  :: Handler Html
+getHamletSyntaxeR  = defaultLayout $ do
     let autorizado = False
     let mpessoa = ehPessoa (Pessoa "Patrick" 24) 
     [whamlet| 
@@ -55,7 +53,6 @@ getPagina2R = defaultLayout $ do
  
  
     |]
-    
     [whamlet|
         <form action=@{InputFormR}>
             <p>

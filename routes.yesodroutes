@@ -1,11 +1,11 @@
-/              HomeR GET
-/add/#Int/#Int AddR  GET
-/pagina1       Pagina1R GET
-/pagina2       Pagina2R GET
-/inputform     InputFormR GET
-/appliform     AppliFormR GET POST
-/sessao        SessaoR GET POST
-/set-message SetMessageR GET POST 
+/                   HomeR             GET
+/add/#Int/#Int      AddR              GET
+/templates-widgets  TemplatesWidgetsR GET
+/Hamlet-syntaxe     HamletSyntaxeR    GET
+/inputform          InputFormR        GET
+/appliform          AppliFormR        GET POST
+/sessah             SessaoR           GET POST
+/set-message        SetMessageR       GET POST 
+/home-auth          HomeAuthR         GET POST
 /admin AdminR GET
 /auth  AuthR  Auth getAuth
-/home-auth    HomeAuthR GET POST

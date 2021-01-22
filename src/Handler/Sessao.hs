@@ -29,3 +29,7 @@ postSessaoR = do
         Just val -> setSession key val
     liftIO $ print (key, mval)
     redirect SessaoR
+    
+-- clear session
+
+-- lookupSession

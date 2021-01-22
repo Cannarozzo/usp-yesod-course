@@ -1,13 +1,13 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
-module Handler.Pagina1 where
+module Handler.TemplatesWidgets where
 
 import Foundation
 import Yesod.Core
 
-getPagina1R :: Handler Html
-getPagina1R = defaultLayout $ do
+getTemplatesWidgetsR :: Handler Html
+getTemplatesWidgetsR = defaultLayout $ do
     setTitle "Titulo da página"
     toWidget [lucius| h1 { color: green; } |]
     addScriptRemote "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"

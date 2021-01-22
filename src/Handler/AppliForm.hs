@@ -25,6 +25,15 @@ data Blog = Blog
     }
     deriving Show
 
+
+data Pessoa = Pessoa {nome::Text, idade :: Int} deriving Show
+
+formPessoa :: Form Pessoa
+formPessoa = renderDivs $ Pessoa
+    <$> areq textField "Nome" Nothing
+    <*> areq intField  "Idade" Nothing
+
+-- Form Blog eh um sinonimo 
 form :: UserId -> Form Blog
 form userId = renderDivs $ Blog
     <$> areq textField "Title" Nothing
@@ -34,7 +43,7 @@ form userId = renderDivs $ Blog
 
 getAppliFormR :: Handler Html
 getAppliFormR =  do
-    let userId = UserId 5 -- again, see the authentication chapter
+    let userId = UserId 5 
     ((res, widget), enctype) <- runFormPost $ form userId
     defaultLayout
         [whamlet|
@@ -46,3 +55,36 @@ getAppliFormR =  do
                 
 postAppliFormR :: Handler Html
 postAppliFormR = getAppliFormR
+
+
+{-
+
+data Pessoa = Pessoa {nome::Text, idade :: Int} deriving Show
+
+formPessoa :: Form Pessoa
+formPessoa = renderDivs $ Pessoa
+    <$> areq textField "Nome" Nothing
+    <*> areq intField  "Idade" Nothing
+
+getAppliFormR :: Handler Html
+getAppliFormR =  do
+    --let userId = UserId 5 
+    ((_, widget), enctype) <- runFormPost $ formPessoa
+    defaultLayout
+        [whamlet|
+            <form method=post action=@{AppliFormR} enctype=#{enctype}>
+                ^{widget}
+                <input type=submit>
+        |]
+                
+postAppliFormR :: Handler Html
+postAppliFormR = do
+    --let userId = UserId 5 
+    ((res, _), _) <- runFormPost $ formPessoa
+    defaultLayout
+        [whamlet|
+            <p>Previous result: #{show res}
+        |]    
+                
+                
+-}
