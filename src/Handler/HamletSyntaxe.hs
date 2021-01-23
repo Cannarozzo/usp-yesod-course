@@ -8,7 +8,6 @@ import Yesod.Core
 import Data.Text
 
 data Pessoa = Pessoa {nome:: Text , idade::Int } | Nulo deriving Show
-
 pessoas = [Pessoa "Patrick" 24, Pessoa "Felipe" 34, Pessoa "Fulano" 55]
 
 ehPessoa :: Pessoa -> Maybe Pessoa
@@ -42,7 +41,6 @@ getHamletSyntaxeR  = defaultLayout $ do
                 #{nome pessoa}
                 
       <br>
-      
       $case mpessoa 
         $of Just pessoa
           <p>

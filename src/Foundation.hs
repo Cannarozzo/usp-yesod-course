@@ -5,7 +5,6 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE QuasiQuotes           #-}
 
-
 module Foundation where
 
 import Yesod.Core
@@ -14,7 +13,6 @@ import Data.Text
 import Network.HTTP.Conduit (Manager)
 import Yesod.Auth
 import Yesod.Auth.Dummy -- just for testing, don't use in real life!!!
-
 
 data App = App
     { httpManager :: Manager}
@@ -30,7 +28,7 @@ instance Yesod App where -- Sessao setada para 1 minuto
     -- route name, then a boolean indicating if it's a write request
     isAuthorized HomeAuthR True = isAdmin
     isAuthorized AdminR _ = isAdmin
-
+--    isAuthorized InputFormR _ = isUser1
     -- anyone can access other pages
     isAuthorized _ _ = return Authorized
 {-
@@ -50,7 +48,6 @@ instance Yesod App where -- Sessao setada para 1 minuto
                         ^{pageBody pc}
             |]
 -}        
-    
 {-
  makeSessionBackend _ =
         fmap Just $ defaultClientSessionBackend minutes filepath
@@ -65,6 +62,14 @@ isAdmin = do
         Just "admin" -> Authorized
         Just _ -> Unauthorized "You must be an admin"
 
+
+isUser1 = do
+    mu <- maybeAuthId
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+        Just "user1" -> Authorized
+        Just _ -> Unauthorized "You must be an admin"
+
 instance RenderMessage App FormMessage where
     renderMessage _ _ = defaultFormMessage
 
@@ -75,7 +80,7 @@ instance YesodAuth App where
     type AuthId App = Text
     authenticate = return . Authenticated . credsIdent
 
-    loginDest _ = HomeR
+    loginDest _ = HomeAuthR
     logoutDest _ = HomeR
 
     authPlugins _ = [authDummy]
